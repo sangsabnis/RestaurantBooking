@@ -1,0 +1,160 @@
+<DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<title>5 Spice</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Sans">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+
+<!-- Datetimepicker -->
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.datetimepicker.full.min.js"></script>
+
+
+<meta name="viewport" content="width=device-width"> 
+</head>
+
+<body class="body">
+
+	<header >
+		<img class="header-img" src="img/header.jpg">
+		<nav>
+			<ul class="navbar nav navbar-nav navbar-inverse mynav">
+				<li class="owner-mynav-li"><a href="#" class="mynav-li-a">Home</a></li>
+				<li class="owner-mynav-li"><a href="#" class="mynav-li-a">Create Reservation</a></li>
+				<li class="owner-mynav-li"><a href="#" class="mynav-li-a">View Contact List</a></li>
+				<li class="owner-mynav-li"><a href="#" class="mynav-li-a">Profile</a></li>
+				<li class="owner-mynav-li"><a href="#" class="mynav-li-a">View Seating Area</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- <div class="jumbotron"> -->
+			<article class="article">
+				<header>Reserve a Table</header>
+				<content>
+					<div class="row my-table">
+						<div class="col-md-4">Full Name:</div>
+						<div class="col-md-4"><input type="text" required></div>
+					</div>
+					<div class="row my-table">
+						<div class="col-md-4">Number of guests:</div>
+						<div class="col-md-4"><input type="text" required></div>
+					</div>
+					
+					<div class="row my-table">
+						<div class="col-md-4">Select Date & Time:</div>
+						<div class="col-md-4">
+							<input type="text" class="some_class" id="some_class_1">
+						</div>
+					</div>
+					<script type="text/javascript">
+
+					$('.some_class').datetimepicker({
+						theme: 'dark',
+						allowTimes:['11:00','12:00','13:00','14:00','18:00','19:00','20:00','21:00','22:00']
+						// formatTime:'H:i',
+						// formatDate:'m.d.Y'
+					});
+
+					</script>
+
+					<div class="row my-table">
+						<div class="col-md-4">Auto-assign</div>
+						<div class="col-md-4"><input id="auto-assign" type="checkbox" onClick="isChecked();"/></div>
+					</div>
+					
+					<div id="hideTables">
+						<div class="row my-table">
+							<div class="col-md-4">Select Table:</div>
+							<!-- <div class="col-md-4">
+								<select id="tableSelection" >
+									<option value="1">Table 1 (For 2)</option>
+									<option value="2">Table 2 (For 2)</option>
+									<option value="3">Table 3 (For 4)</option>
+									<option value="4">Table 4 (For 4)</option>
+									<option value="5">Table 5 (For 4)</option>
+									<option value="6">Table 6 (For 4)</option>
+									<option value="7">Table 7 (For 8)</option>
+									<option value="8">Table 8 (For 8)</option>
+									<option value="9">Table 9 (For 8)</option>
+									<option value="10">Table 10 (For 8)</option>
+								</select>
+
+							</div> -->
+						</div>
+						<button type="button" class="btn btn-lg my-btn seat2" onClick="getValue(1);" >1<br>For 2</button>
+						<button type="button" class="btn btn-lg my-btn seat4" >2<br>For 4</button>
+						<button type="button" class="btn btn-lg my-btn seat8" onClick="getValue(3);">3<br>For 8</button>
+						<button type="button" class="btn btn-lg my-btn seat2" >4<br>For 2</button>
+						<br><br>
+						<button type="button" class="btn btn-lg my-btn seat2" >5<br>For 2</button>
+						<button type="button" class="btn btn-lg my-btn seat4" disabled>6<br>For 4</button>
+						<button type="button" class="btn btn-lg my-btn seat8" >7<br>For 8</button>
+						<button type="button" class="btn btn-lg my-btn seat2" >8<br>For 2</button>
+						<br><br>
+						<button type="button" class="btn btn-lg my-btn seat2" >9<br>For 2</button>
+						<button type="button" class="btn btn-lg my-btn seat4" >10<br>For 4</button>
+						<button type="button" class="btn btn-lg my-btn seat8" >11<br>For 8</button>
+						<button type="button" class="btn btn-lg my-btn seat2" >12<br>For 2</button>
+						<br><br>
+						<button type="button" class="btn btn-lg my-btn seat2" disabled>13<br>For 2</button>
+						<button type="button" class="btn btn-lg my-btn seat4" >14<br>For 4</button>
+						<button type="button" class="btn btn-lg my-btn seat8" >15<br>For 8</button>
+						<button type="button" class="btn btn-lg my-btn seat2" >16<br>For 2</button>	
+					</div>
+					
+					<br><br>
+					<div class="row my-table">
+						<div class="col-md-4"><button type="button" id="submitButton" class="btn btn-lg my-btn" onClick="submit();" >Confirm</button></div>
+					</div>	
+					<script type="text/javascript">
+					function isChecked(){
+						
+						if(document.getElementById("auto-assign").checked){
+							document.getElementById("hideTables").style.display = 'none';
+						}
+						else{
+							document.getElementById("hideTables").style.display = 'block';	
+						}
+					}
+					//get table number
+					function getValue(temp){
+						op = temp;
+					}
+					//perform action after clicking on submit button
+					function submit(){
+						//alert(op);
+					}
+					
+					</script>
+
+					
+					
+				</content>
+			</article>
+			<article class="side-article">
+				<header>Hours</header>
+				<p>Lunch: </p>
+				<p>Mon - Fri 11:00 am - 2:00 pm</p>
+				<p>Sat & Sun 10:00 am - 3:00 pm</p>
+				<p>Dinner: </p>				
+				<p>Mon - Sun 6:00 pm - 10:30 pm</p>
+			</article>
+			<article class="side-article">
+				<header>Contact Us</header>
+				<p>Address: </p>
+				<p>9201 University City Blvd, </p>
+				<p>Charlotte, NC 28223</p>
+				<p>Phone: </p>				
+				<p>(407) 923-3566</p>
+			</article>
+	<!-- </div> -->
+	
+</body>
+
+</html>
